@@ -1,22 +1,14 @@
 const { BASE_URL, testData } = require('../support/constants');
 const DEFAULT_TIMEOUT = 500;
 
-describe('Should create book successfully', () => {
+describe('Should edit book successfully', () => {
 
     before(() => {
         cy.clearCookies();
 
         cy.visit(BASE_URL);
-        cy.get('[data-test-id="add-btn"').click();
-        cy.wait(DEFAULT_TIMEOUT);
-        cy.get('[data-test-id="name-input"').type(testData.name);
-        cy.wait(DEFAULT_TIMEOUT);
-        cy.get('[data-test-id="author-input"]').type(testData.author);
+        row = cy.get('table').contains('td', testData.name).should('be.visible');
 
-
-        cy.get('[data-test-id="confirm-add-btn"]').click();
-        cy.contains('10 / page').click();
-        cy.contains('50 / page').click();
     });
 
     it("The book should be listed with the right name", () => {
