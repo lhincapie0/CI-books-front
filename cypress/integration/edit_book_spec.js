@@ -20,11 +20,9 @@ describe('Should edit book successfully', () => {
     });
 
     after(() =>{
-        cy.get(`[data-test-id="${seedData.name}-edited"]`).prev().click();
-        cy.get(`[data-test-id="${seedData.name}-edited"]`).prev().click();
+        cy.get(`[data-test-id="${seedData.name}-edited"]`).prev().find('input').click();
 
         cy.get('[data-test-id="delete-btn"]').click();
-
         }
     )
 
