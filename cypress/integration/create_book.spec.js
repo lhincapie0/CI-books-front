@@ -1,5 +1,4 @@
-const { BASE_URL, testData } = require('../support/constants');
-const DEFAULT_TIMEOUT = 500;
+const { BASE_URL, testData, DEFAULT_TIMEOUT } = require('../support/constants');
 
 describe('Should create book successfully', () => {
 

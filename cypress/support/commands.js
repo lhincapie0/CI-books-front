@@ -1,25 +1,17 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const { DEFAULT_TIMEOUT } = require('../support/constants');
+
+module.exports.createSeedData = function createSeedData(name, author) {
+    cy.get('[data-test-id="add-btn"').click();
+    cy.wait(DEFAULT_TIMEOUT);
+    cy.get('[data-test-id="name-input"').type(name);
+    cy.wait(DEFAULT_TIMEOUT);
+    cy.get('[data-test-id="author-input"]').type(author);
+
+
+    cy.get('[data-test-id="confirm-add-btn"]').click();
+};
+
+module.exports.changePagination = function changePagination() {
+    cy.contains('10 / page').click();
+    cy.contains('50 / page').click();
+}
