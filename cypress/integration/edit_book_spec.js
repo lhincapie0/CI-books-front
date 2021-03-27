@@ -11,14 +11,22 @@ describe('Should edit book successfully', () => {
         createSeedData(seedData.name, seedData.author);
         changePagination();
         row = cy.get(`[data-test-id="${seedData.author}"]`).next().click();
+        cy.wait(DEFAULT_TIMEOUT);
         cy.get('[data-test-id="name-input"').type('-edited');
         cy.wait(DEFAULT_TIMEOUT);
         cy.get('[data-test-id="author-input"]').type('-edited');
 
         cy.get('[data-test-id="confirm-add-btn"]').click();
-        changePagination();
     });
 
+    after(() =>{
+        cy.get(`[data-test-id="${seedData.name}-edited"]`).prev().click();
+        cy.get(`[data-test-id="${seedData.name}-edited"]`).prev().click();
+
+        cy.get('[data-test-id="delete-btn"]').click();
+
+        }
+    )
 
     it("The book should be listed with the right name", () => {
         cy.get('table').contains('td', `${seedData.name}-edited`).should('be.visible');
