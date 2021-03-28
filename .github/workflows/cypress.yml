@@ -22,7 +22,7 @@ jobs:
       - name: trigger event
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.PAT }}
           repository: lhincapie0/books-ui
           event-type: run_e2e_test
           ref: ${{ github.event.client_payload.sha }}
