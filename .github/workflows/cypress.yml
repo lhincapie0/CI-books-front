@@ -21,3 +21,9 @@ jobs:
         with:
           browser: chrome
           command: npm run test:e2e:ui:headless
+      - name: trigger event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: lhincapie0/books-ui
+          event-type: QA-PASSED
