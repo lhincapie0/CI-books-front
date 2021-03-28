@@ -9,6 +9,8 @@ on:
     - '**'
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [ run_e2e_test ]
 
 jobs:
   cypress-run:
@@ -26,4 +28,4 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: lhincapie0/books-ui
-          event-type: QA-PASSED
+          event-type: test_passed
