@@ -28,5 +28,5 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: lhincapie0/books-ui
-          event-type: test_passed
-          client-payload: '{"ref": "${{ github.ref }}"}'
+          event-type: run_e2e_test
+          ref: ${{ github.event.client_payload.sha }}
