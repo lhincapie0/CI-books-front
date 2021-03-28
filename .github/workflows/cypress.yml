@@ -29,3 +29,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: lhincapie0/books-ui
           event-type: test_passed
+          client-payload: '{"ref": "${{ github.ref }}"}'
