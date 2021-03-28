@@ -19,10 +19,11 @@ jobs:
         with:
           browser: chrome
           command: npm run test:e2e:ui:headless
-      - name: trigger event
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT }}
-          repository: lhincapie0/books-ui
-          event-type: run_e2e_test
-          ref: ${{ github.event.client_payload.sha }}
+      #- name: trigger event
+       # uses: peter-evans/repository-dispatch@v1
+        #with:
+         # token: ${{ secrets.PAT }}
+          #repository: lhincapie0/books-ui
+          #event-type: run_e2e_test
+          #ref: ${{ github.event.client_payload.sha }}
+#Comment due error: Bad credentials
